@@ -1,0 +1,12 @@
+/* Voir https://getbootstrap.com/docs/5.0/customize/sass/  */
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/_variables.scss";
+
+:host {
+  display: block;
+}
+
+.item-container {
+  border-bottom: 1px solid map-get($colors, 'gray');
+}
+

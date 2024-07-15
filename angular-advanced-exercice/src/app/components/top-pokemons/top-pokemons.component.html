@@ -1,0 +1,20 @@
+<h3 class="mb-4">Top Pokémons</h3>
+
+<ng-container *ngFor="let pokemon of pokemons; let i = index">
+  <app-pokemon-item (click)="onPokemonClick(i)" [hideDeleteButton]="true" *ngIf="i < maxPokemonsToShow" [pokemon]="pokemon"></app-pokemon-item>
+</ng-container>
+
+<div class="row mt-5" *ngIf="currentPokemon">
+  <h4>Pokémon {{ currentPokemon.id }}</h4>
+  <div class="col-12">
+    <label for="pokemon-name-input" class="form-label">Nom</label>
+    <input type="text" class="form-control" id="pokemon-name-input" (blur)="unselectPokemon()" [(ngModel)]="currentPokemon.name" />
+  </div>
+  <div class="col-12 mt-3">
+    <label for="pokemon-sex-select" class="form-label">Sexe</label>
+    <select id="pokemon-sex-select" (change)="onPokemonSexChange($event)" (blur)="unselectPokemon()" class="form-select">
+      <option value="male" [selected]="currentPokemon.sex === 'male'">Mâle</option>
+      <option value="female" [selected]="currentPokemon.sex === 'female'">Femelle</option>
+    </select>
+  </div>
+</div>
